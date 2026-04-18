@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ClearPath-inspired editorial design system. All colors HSL. */
+
+@layer base {
+  :root {
+    /* Cream / sage palette */
+    --background: 48 38% 96%;
+    --foreground: 150 18% 14%;
+
+    --card: 48 38% 98%;
+    --card-foreground: 150 18% 14%;
+
+    --popover: 48 38% 98%;
+    --popover-foreground: 150 18% 14%;
+
+    /* Sage primary */
+    --primary: 150 22% 32%;
+    --primary-foreground: 48 38% 96%;
+
+    --secondary: 90 18% 88%;
+    --secondary-foreground: 150 22% 22%;
+
+    --muted: 48 24% 90%;
+    --muted-foreground: 150 10% 38%;
+
+    --accent: 36 60% 70%;
+    --accent-foreground: 150 22% 18%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 48 38% 96%;
+
+    --border: 150 10% 82%;
+    --input: 150 10% 82%;
+    --ring: 150 22% 32%;
+
+    --radius: 1.25rem;
+
+    /* Editorial gradients */
+    --gradient-hero: radial-gradient(ellipse at 30% 40%, hsl(150 30% 75% / 0.6), transparent 60%),
+                     radial-gradient(ellipse at 80% 70%, hsl(36 70% 78% / 0.5), transparent 60%),
+                     linear-gradient(135deg, hsl(48 38% 96%), hsl(90 20% 90%));
+    --gradient-mist: linear-gradient(180deg, hsl(48 38% 96%) 0%, hsl(90 18% 92%) 100%);
+    --gradient-sage: linear-gradient(135deg, hsl(150 22% 32%), hsl(150 28% 24%));
+
+    /* Shadows */
+    --shadow-soft: 0 20px 60px -20px hsl(150 22% 32% / 0.18);
+    --shadow-glow: 0 0 80px hsl(36 60% 70% / 0.3);
+
+    /* Motion */
+    --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --sidebar-background: 48 38% 96%;
+    --sidebar-foreground: 150 18% 14%;
+    --sidebar-primary: 150 22% 32%;
+    --sidebar-primary-foreground: 48 38% 96%;
+    --sidebar-accent: 90 18% 88%;
+    --sidebar-accent-foreground: 150 22% 22%;
+    --sidebar-border: 150 10% 82%;
+    --sidebar-ring: 150 22% 32%;
+  }
+
+  .dark {
+    --background: 150 18% 8%;
+    --foreground: 48 30% 92%;
+    --card: 150 18% 10%;
+    --card-foreground: 48 30% 92%;
+    --popover: 150 18% 10%;
+    --popover-foreground: 48 30% 92%;
+    --primary: 48 30% 88%;
+    --primary-foreground: 150 22% 18%;
+    --secondary: 150 14% 16%;
+    --secondary-foreground: 48 30% 92%;
+    --muted: 150 14% 16%;
+    --muted-foreground: 48 10% 70%;
+    --accent: 36 60% 70%;
+    --accent-foreground: 150 22% 18%;
+    --destructive: 0 60% 40%;
+    --destructive-foreground: 48 30% 92%;
+    --border: 150 14% 20%;
+    --input: 150 14% 20%;
+    --ring: 48 30% 88%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-serif {
+    font-family: 'Fraunces', 'Times New Roman', serif;
+    font-optical-sizing: auto;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-mist { background: var(--gradient-mist); }
+  .bg-gradient-sage { background: var(--gradient-sage); }
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+
+  .text-balance { text-wrap: balance; }
+
+  .marquee-track {
+    animation: marquee 40s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
