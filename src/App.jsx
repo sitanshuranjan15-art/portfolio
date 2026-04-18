@@ -6,17 +6,20 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.jsx";
 import NotFound from "./pages/NotFound.jsx";
 const queryClient = new QueryClient();
-const App = () => (<QueryClientProvider client={queryClient}>
+const App = () => (
+  <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      {/* Add the basename prop here */}
+      <BrowserRouter basename="/portfolio">
         <Routes>
           <Route path="/" element={<Index />}/>
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />}/>
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>);
+  </QueryClientProvider>
+);
+
 export default App;
